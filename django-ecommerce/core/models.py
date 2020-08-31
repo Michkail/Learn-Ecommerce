@@ -10,18 +10,26 @@ CATEGORY_CHOICES = (
     ('S', 'Shirt'),
     ('SW', 'Sport wear'),
     ('OW', 'Outwear'),
-    ('D', 'Drink')
+    ('D', 'Drink'),
+    ('F', 'Food'),
+    ('G', 'Gear'),
+    ('A', 'Animal'),
+    ('MI', 'Minimalis'),
+    ('SP', 'Semi Permanen'),
+    ('MO', 'Modern')
 )
 
 LABEL_CHOICES = (
     ('P', 'primary'),
     ('S', 'secondary'),
-    ('D', 'danger')
+    ('D', 'danger'),
+    ('E', 'extreme')
 )
 
 ADDRESS_CHOICES = (
     ('B', 'Billing'),
     ('S', 'Shipping'),
+    ('O', 'Original')
 )
 
 
@@ -125,7 +133,7 @@ class Order(models.Model):
         return self.user.username
 
     def get_total(self):
-        total = 0
+        total = 000
         for order_item in self.items.all():
             total += order_item.get_final_price()
         if self.coupon:
